@@ -31,6 +31,7 @@ class Project(models.Model):
         """Returns the URL to access a particular instance of the model."""
         return reverse('project-detail', args=[str(self.id)])
 
+
 class Student(models.Model):
 #List of choices for major value in database, human readable name
     MAJOR = (
