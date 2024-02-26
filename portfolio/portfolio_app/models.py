@@ -20,7 +20,7 @@ class Portfolio(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=400)
-    porfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
 
     #Gets the name of the student and uses that for their display on /admin
     def __str__(self):
