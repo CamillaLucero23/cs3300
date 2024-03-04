@@ -5,6 +5,16 @@
 {% block content %}
 <h1>Computer Science Portfolios</h1>
 
-<h2>More to come from Camilla Lucero</h2>
+    <h2>List of Active Portfolios</h2>
+    <ul class='list-group'>
+        {% for i in student_active_portfolios %}
+            <li class='list-group-item'>Name: {{i.name}}
+                <p><strong>Porfolio: {{i.portfolio.title}}
 
-{% endblock %}
+                </strong></p>
+            </li>
+        {% endfor %}
+    </ul>
+{%endblock%}
+
+
