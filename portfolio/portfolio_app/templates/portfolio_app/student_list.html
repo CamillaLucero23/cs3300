@@ -9,11 +9,18 @@
         <ul>
             {% for student in student_list %}
             <li>
-                <a href="{{ student.get_absolute_url }}">{{ student.name }}</a>
+                <p><strong>{{student.name}}</strong>
+                <p>Portfolio: {{student.portfolio.title}} 
+                    <div class="btn-group">
+                        <a href="{{ student.portfolio.get_absolute_url}}" class="btn btn-primary" role="button">View</a>
+                        <a href="{% url 'update-portfolio' student.portfolio.id %}" class="btn btn-primary" role="button">Update</a>
+                    </div>
+
+                    
             </li>
             {% endfor %}
         </ul>
     {%else%}
         <p>There are no students registered currently.</p>
     {%endif%}
-{%endblock%}D
+{%endblock%}

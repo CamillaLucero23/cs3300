@@ -1,0 +1,32 @@
+<!-- inherit from base.html-->
+{% extends "portfolio_app/base_template.html" %}
+
+<!-- Replace block content in base_template.html -->
+{% block content %}
+<h1>Portfolio Title: {{portfolio.title}}</h1>
+
+<p><strong>Is Active?:</strong> {{portfolio.is_active}}</p>
+<p><strong>Contact Email:</strong> {{portfolio.contact_email}}</p>
+<p><strong>About:</strong> {{portfolio.about}}</p>
+
+<h2>Projects</h2>
+<a href="{% url 'create-project' portfolio.id %}" class="btn btn-primary" role="button">Create New</a>
+{%if project_list %}
+<div class="container">
+    <ul>
+        {% for project in project_list %}
+            <li>
+                {{ project.title }} 
+                <div class="btn-group">
+                    <a href="{{ project.get_absolute_url}}" class="btn btn-primary" role="button">View</a>
+                    <a href="{% url 'update-project' portfolio.id project.id %}" class="btn btn-primary" role="button">Update</a>
+                    <a href="{% url 'delete-project' portfolio.id project.id %}" class="btn btn-primary" role="button">Delete</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{%else%}
+<p>There are no projects in this portfolio yet.</p>
+{%endif%}
+{%endblock%}

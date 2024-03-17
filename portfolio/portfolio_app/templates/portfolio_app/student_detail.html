@@ -7,6 +7,5 @@
 
 <p><strong>Email:</strong> {{student.email}}</p>
 <p><strong>Major:</strong> {{student.major}}</p>
-<p><strong>Portfolio:</strong></p>
-
+<p><strong>Portfolio:</strong><a href="{{ student.portfolio.get_absolute_url}}">{{ student.portfolio.title }} </a>
 {%endblock%}
